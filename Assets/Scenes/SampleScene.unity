@@ -814,8 +814,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveUp: 119
   moveDown: 115
-  movementUp: 1
-  movementDown: -1
+  movementUp: 2
+  movementDown: -2
   speed: 5
   movementZ: 0
 --- !u!54 &1546833947

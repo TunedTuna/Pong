@@ -12,12 +12,9 @@ public class PaddleController : MonoBehaviour
 
 
     //roll a ball
-    public float movementUp =1f;
-    public float movementDown = -1f;
+    public float movement =1f;
+    public float paddleForce = 1f;
 
-    public float speed = 10f;
-    
-    public float movementZ;
 
 
     void Start()
@@ -40,15 +37,20 @@ public class PaddleController : MonoBehaviour
         //Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         //rb.AddForce(movement * speed);
 
-        if (Input.GetKey(moveUp)) 
-        { 
-            Transform paddleTransformer = GetComponent<Transform>();
-            paddleTransformer.position += new Vector3(0f, 0f, movementUp *Time.deltaTime);
-        }
-        if (Input.GetKey(moveDown))
-        {
-            Transform paddleTransformer = GetComponent<Transform>();
-            paddleTransformer.position += new Vector3(0f, 0f, movementDown * Time.deltaTime);
-        }
+        float movementAxis = Input.GetAxis("LeftPaddle");
+
+        Transform paddleTransformer = GetComponent<Transform>();
+        paddleTransformer.position += new Vector3(0f, 0f,movementAxis * movement * Time.deltaTime);
+
+        //if (Input.GetKey(moveUp)) 
+        //{ 
+        //    Transform paddleTransformer = GetComponent<Transform>();
+        //    paddleTransformer.position += new Vector3(0f, 0f, -movement *Time.deltaTime);
+        //}
+        //if (Input.GetKey(moveDown))
+        //{
+        //    Transform paddleTransformer = GetComponent<Transform>();
+        //    paddleTransformer.position += new Vector3(0f, 0f, movement * Time.deltaTime);
+        //}
     }
 }
