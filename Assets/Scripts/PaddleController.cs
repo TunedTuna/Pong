@@ -34,23 +34,13 @@ public class PaddleController : MonoBehaviour
     void Update()
     {
         //roll a ball eg
-        //Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+       
         //rb.AddForce(movement * speed);
 
         float movementAxis = Input.GetAxis("LeftPaddle");
+        Vector3 force = new Vector3(0f, 0.0f, 1f * movementAxis * paddleForce);
 
-        Transform paddleTransformer = GetComponent<Transform>();
-        paddleTransformer.position += new Vector3(0f, 0f,movementAxis * movement * Time.deltaTime);
+        rb.AddForce(force,ForceMode.Force);
 
-        //if (Input.GetKey(moveUp)) 
-        //{ 
-        //    Transform paddleTransformer = GetComponent<Transform>();
-        //    paddleTransformer.position += new Vector3(0f, 0f, -movement *Time.deltaTime);
-        //}
-        //if (Input.GetKey(moveDown))
-        //{
-        //    Transform paddleTransformer = GetComponent<Transform>();
-        //    paddleTransformer.position += new Vector3(0f, 0f, movement * Time.deltaTime);
-        //}
     }
 }

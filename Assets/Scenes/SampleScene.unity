@@ -498,6 +498,7 @@ GameObject:
   - component: {fileID: 717904150}
   - component: {fileID: 717904149}
   - component: {fileID: 717904148}
+  - component: {fileID: 717904153}
   m_Layer: 0
   m_Name: '"ball"'
   m_TagString: Untagged
@@ -621,6 +622,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &717904153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717904147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e8e6a7a0f48b144a57bdd80840a9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,10 +827,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveUp: 119
   moveDown: 115
-  movementUp: 2
-  movementDown: -2
-  speed: 5
-  movementZ: 0
+  movement: 4
+  paddleForce: 1
 --- !u!54 &1546833947
 Rigidbody:
   m_ObjectHideFlags: 0
