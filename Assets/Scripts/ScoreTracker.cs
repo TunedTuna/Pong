@@ -5,7 +5,7 @@ public class ScoreTracker : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     //checks both scores and prints them. starts the ball spawn bc having it in ScoreDistribute will x2?
-    //remember -  this is gonna get weird left goal = right score, right goal = left goal?
+    //remember -  this is gonna get weird left goal = right score, right goal = left goal? MAYBE
     public GameObject goalLeft;
     public GameObject goalRight;
 
