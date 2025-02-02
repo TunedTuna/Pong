@@ -4,16 +4,10 @@ public class SpawnRules : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject ballPrefab;
-    public bool firstTime = true;
+    
     public void Start()
     {
-        if (firstTime)
-        {
-            //ball spawns?
-            Vector3 spot = new Vector3(0f, 0.5f, 0f);
-            GameObject newOb = Instantiate(ballPrefab, spot, Quaternion.identity);
-            firstTime = false;
-        }
+
 
 
 
@@ -24,7 +18,7 @@ public class SpawnRules : MonoBehaviour
         //spawn another?
         Vector3 spot = new Vector3(0f, 0.5f, 0f);
         GameObject newOb = Instantiate(ballPrefab, spot, Quaternion.identity);
-        Rigidbody rb = GetComponent<Rigidbody>();
+        Rigidbody rb = newOb.GetComponent<Rigidbody>();
         if (x.Equals("right"))
         {
 

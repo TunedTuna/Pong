@@ -836,7 +836,7 @@ GameObject:
   - component: {fileID: 838092524}
   - component: {fileID: 838092528}
   m_Layer: 0
-  m_Name: Score W
+  m_Name: Goal W
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -948,6 +948,7 @@ MonoBehaviour:
   otherSide: right
   SpawnRules: {fileID: 1398574216}
   ballPrefab: {fileID: 108896895206282089, guid: fc30f800475c06c4ab3771a196495f13, type: 3}
+  st: {fileID: 1842242526}
 --- !u!1 &1043564501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,6 +1747,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &1842242524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1842242525}
+  - component: {fileID: 1842242526}
+  m_Layer: 0
+  m_Name: ScoreTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1842242525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842242524}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1346941, y: -0.9880276, z: 2.4008756}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1842242526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842242524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d741cbe6121b2da418700c6c014a21ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalLeft: {fileID: 838092523}
+  goalRight: {fileID: 1981428287}
+  spawnRules: {fileID: 1398574216}
+  GameOverScore: 11
+  firstTime: 1
 --- !u!1 &1981428287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,7 +1810,7 @@ GameObject:
   - component: {fileID: 1981428288}
   - component: {fileID: 1981428292}
   m_Layer: 0
-  m_Name: Score E
+  m_Name: Goal E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1872,6 +1922,7 @@ MonoBehaviour:
   otherSide: left
   SpawnRules: {fileID: 1398574216}
   ballPrefab: {fileID: 108896895206282089, guid: fc30f800475c06c4ab3771a196495f13, type: 3}
+  st: {fileID: 1842242526}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1889,3 +1940,4 @@ SceneRoots:
   - {fileID: 455491620}
   - {fileID: 1160744308}
   - {fileID: 1398574218}
+  - {fileID: 1842242525}

@@ -7,8 +7,8 @@ public class BallRules : MonoBehaviour
 
     void Start()
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
-        rb.linearVelocity = new Vector3(-5f, 0f, 0f); // Adjust the X value for desired speed
+        //Rigidbody rb = GetComponent<Rigidbody>();
+        //rb.linearVelocity = new Vector3(-5f, 0f, 0f); // Adjust the X value for desired speed
 
 
     }

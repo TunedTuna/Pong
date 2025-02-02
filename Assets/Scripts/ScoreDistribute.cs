@@ -10,6 +10,8 @@ public class ScoreDistribute : MonoBehaviour
     public SpawnRules SpawnRules;
     public GameObject ballPrefab;
 
+    public ScoreTracker st;
+
 
     void Start()
     {
@@ -25,10 +27,11 @@ public class ScoreDistribute : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Destroy(other.gameObject);
-     
-        if (score != 11)
+
+        score += 1;
+        if (score != st.GameOverScore)
         {
-            score += 1;
+           
             Debug.Log(otherSide + " " + score);
             //make an outside funcion to print so goals dont have to refer to each other, same function will reset scores to both side xxx
 
@@ -38,6 +41,7 @@ public class ScoreDistribute : MonoBehaviour
         else
         {
             // scoreTracker.results GO, l#| r#
+            st.printResults(side);
         }
 
        
@@ -48,7 +52,9 @@ public class ScoreDistribute : MonoBehaviour
         //spawn another?
         Vector3 spot = new Vector3(0f, 0.5f, 0f);
         GameObject newOb = Instantiate(ballPrefab, spot, Quaternion.identity);
-        Rigidbody rb = GetComponent<Rigidbody>();
+        //get compnent from new obj, not this obj(the goal)
+        Rigidbody rb = newOb.GetComponent<Rigidbody>();
+
         if (x.Equals("right"))
         {
 
