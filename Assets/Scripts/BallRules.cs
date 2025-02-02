@@ -3,6 +3,8 @@ using UnityEngine;
 public class BallRules : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float speedIncrease = 2f;
+
     void Start()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -31,11 +33,11 @@ public class BallRules : MonoBehaviour
         //increase speed, change direction
         Rigidbody rb= GetComponent<Rigidbody>();
         float speed = other.relativeVelocity.magnitude;
-        float newSpeed = speed * 2f;
+        float newSpeed = speed * speedIncrease;
 
         Vector3 newVelocity = other.relativeVelocity;
         newVelocity= newVelocity.normalized *newSpeed;
         rb.linearVelocity = newVelocity;
-        Debug.Log($"made contact with {other.gameObject.name}");
+        //Debug.Log($"made contact with {other.gameObject.name}");
     }
 }

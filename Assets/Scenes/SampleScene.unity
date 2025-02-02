@@ -946,7 +946,8 @@ MonoBehaviour:
   score: 0
   side: left
   otherSide: right
-  SpawnRules: {fileID: 0}
+  SpawnRules: {fileID: 1398574216}
+  ballPrefab: {fileID: 108896895206282089, guid: fc30f800475c06c4ab3771a196495f13, type: 3}
 --- !u!1 &1043564501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,7 +1202,7 @@ Transform:
   m_GameObject: {fileID: 1398574215}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1869,7 +1870,8 @@ MonoBehaviour:
   score: 0
   side: right
   otherSide: left
-  SpawnRules: {fileID: 0}
+  SpawnRules: {fileID: 1398574216}
+  ballPrefab: {fileID: 108896895206282089, guid: fc30f800475c06c4ab3771a196495f13, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
