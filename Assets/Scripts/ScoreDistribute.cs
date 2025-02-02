@@ -36,7 +36,7 @@ public class ScoreDistribute : MonoBehaviour
             //make an outside funcion to print so goals dont have to refer to each other, same function will reset scores to both side xxx
 
             //call function to spawn ball on other side?
-            spawnBall(side);
+            SpawnRules.spawnBall(side);
         }
         else
         {
@@ -45,28 +45,6 @@ public class ScoreDistribute : MonoBehaviour
         }
 
        
-    }
-
-    public void spawnBall(string x)
-    {
-        //spawn another?
-        Vector3 spot = new Vector3(0f, 0.5f, 0f);
-        GameObject newOb = Instantiate(ballPrefab, spot, Quaternion.identity);
-        //get compnent from new obj, not this obj(the goal)
-        Rigidbody rb = newOb.GetComponent<Rigidbody>();
-
-        if (x.Equals("right"))
-        {
-
-
-            rb.linearVelocity = new Vector3(-5f, 0f, 0f); // Adjust the X value for desired speed
-
-        }
-        else
-        {
-
-            rb.linearVelocity = new Vector3(5f, 0f, 0f); // Adjust the X value for desired speed
-        }
     }
 
 
