@@ -5,15 +5,20 @@ public class BallRules : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.linearVelocity = new Vector3(-5f, 0f, 0f); // Adjust the X value for desired speed
+
+
     }
+
+
 
     // Update is called once per frame
     void Update()
     {
-       Vector3 up = new Vector3(0f, 1f,0f);
-       Quaternion posRotation = Quaternion.Euler(45f, 0f,0f);
-        Quaternion negRotation = Quaternion.Euler(-45f, 0f, 0f);
+       Vector3 up = new Vector3(1f, 0f,0f);
+       Quaternion posRotation = Quaternion.Euler(0f, 0f, 45f);
+        Quaternion negRotation = Quaternion.Euler(0f, 0f, -45f);
 
         Vector3 posVector = posRotation * up;
         Vector3 negVector = negRotation * up;

@@ -6,12 +6,13 @@ public class PaddleController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private Rigidbody rb;
 
-    //public Input moveUp;
+    //for new inputsystem?
     public KeyCode moveUp;
     public KeyCode moveDown;
+    //old input system?
+    public string input;
 
 
-    //roll a ball
     public float movement =1f;
     public float paddleForce = 1f;
 
@@ -37,7 +38,7 @@ public class PaddleController : MonoBehaviour
        
         //rb.AddForce(movement * speed);
 
-        float movementAxis = Input.GetAxis("LeftPaddle");
+        float movementAxis = Input.GetAxis($"{input}");
         Vector3 force = new Vector3(0f, 0.0f, 1f * movementAxis * paddleForce);
 
         rb.AddForce(force,ForceMode.Force);
