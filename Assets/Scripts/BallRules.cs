@@ -32,13 +32,22 @@ public class BallRules : MonoBehaviour
     {
         //increase speed, change direction
         //
-        Rigidbody rb = GetComponent<Rigidbody>();
-        float speed = other.relativeVelocity.magnitude;
-        float newSpeed = speed * speedIncrease;
 
-        Vector3 newVelocity = other.relativeVelocity;
-        newVelocity = newVelocity.normalized * newSpeed;
-        rb.linearVelocity = newVelocity;
+         Rigidbody rb = GetComponent<Rigidbody>();
+        float currentSpeed = rb.linearVelocity.magnitude;
+        float speed = other.relativeVelocity.magnitude;
+            float newSpeed = speed * speedIncrease;
+        if (other.gameObject.CompareTag("Paddle"))
+        {
+            Vector3 newVelocity = other.relativeVelocity;
+            newVelocity = newVelocity.normalized * newSpeed;
+            rb.linearVelocity = newVelocity;
+        }
+        else
+        {
+            Debug.Log("wow");
+        }
+
         //Debug.Log($"made contact with {other.gameObject.name}");
 
 

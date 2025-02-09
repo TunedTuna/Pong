@@ -1,47 +1,49 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class PaddleController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private Rigidbody rb;
+    public float maxTravelHeight;
+    public float minTravelHeight;
+    public float speed;
+    public float collisionBallSpeedUp = 1.5f;
+    public string inputAxis;
 
-    //for new inputsystem?
-    public KeyCode moveUp;
-    public KeyCode moveDown;
-    //old input system?
-    public string input;
-
-
-    public float movement =1f;
-    public float paddleForce = 1f;
-
-
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-    //roll a ball eg
-    //private void OnMove(InputValue movementValue)
-    //{
-    //    Vector2 movementVector = movementValue.Get<Vector2>();
-
-    //    movementX = movementVector.x;
-    //    movementY = movementVector.y;
-    //}
-
-
+    //-----------------------------------------------------------------------------
     void Update()
     {
-        //roll a ball eg
-       
-        //rb.AddForce(movement * speed);
+        float direction = Input.GetAxis(inputAxis);
+        Vector3 newPosition = transform.position + new Vector3(0, 0, direction) * speed * Time.deltaTime;
+        newPosition.z = Mathf.Clamp(newPosition.z, minTravelHeight, maxTravelHeight);
 
-        float movementAxis = Input.GetAxis($"{input}");
-        Vector3 force = new Vector3(0f, 0.0f, 1f * movementAxis * paddleForce);
+        transform.position = newPosition;
+    }
 
-        rb.AddForce(force,ForceMode.Force);
+    //-----------------------------------------------------------------------------
+    void OnCollisionEnter(Collision other)
+    {
+        var paddleBounds = GetComponent<BoxCollider>().bounds;
+        float maxPaddleHeight = paddleBounds.max.z;
+        float minPaddleHeight = paddleBounds.min.z;
 
+        // Get the percentage height of where it hit the paddle (0 to 1) and then remap to -1 to 1 so we have symmetry
+        float pctHeight = (other.transform.position.z - minPaddleHeight) / (maxPaddleHeight - minPaddleHeight);
+        float bounceDirection = (pctHeight - 0.5f) / 0.5f;
+        // Debug.Log($"pct {pctHeight} + bounceDir {bounceDirection}");
+
+        // flip the velocity and rotation direction
+        Vector3 currentVelocity = other.relativeVelocity;
+        float newSign = -Math.Sign(currentVelocity.x);
+        float newRotSign = -newSign; ;
+
+        // Change the velocity between -60 to 60 degrees based on where it hit the paddle
+        float newSpeed = currentVelocity.magnitude * collisionBallSpeedUp;
+        Vector3 newVelocity = new Vector3(newSign, 0f, 0f) * newSpeed;
+        newVelocity = Quaternion.Euler(0f, newRotSign * 60f * bounceDirection, 0f) * newVelocity;
+        other.rigidbody.linearVelocity = newVelocity;
+
+        // Debug.DrawRay(other.transform.position, newVelocity, Color.yellow);
+        // Debug.Break();
     }
 }
